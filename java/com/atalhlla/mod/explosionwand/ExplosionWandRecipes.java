@@ -22,9 +22,9 @@ public class ExplosionWandRecipes {
 			'T', Blocks.tnt );
 		
 		GameRegistry.addShapedRecipe( new ItemStack( mod.items.explosionWand),
-			"X",
-			"g",
-			"Z",
+			"X  ",
+			" g ",
+			"  Z",
 			'X', mod.items.explodium,
 			'g', Items.gold_nugget,
 			'Z', Items.blaze_rod );
