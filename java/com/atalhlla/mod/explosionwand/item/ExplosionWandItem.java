@@ -27,13 +27,11 @@ public class ExplosionWandItem extends Item {
 			itemStack.damageItem( 1, player );
 		}
 
-		// TODO: Sound
-		// Might just preplace this with an actual explosion...
-		world.playSoundEffect( player.posX, player.posY, player.posZ, "random.explode", 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F );
+		world.playSoundEffect( player.posX, player.posY, player.posZ, ExplosionWandMod.MODID + ":explosionwand.throw", 2.0F, 1F );
 
 		if( !world.isRemote ) {
-//			world.spawnEntityInWorld( new EntitySnowball( world, player ) );
-			Entity tnt = new EntityTNTPrimed( world, player.posX, player.posY, player.posZ, player );
+			EntityTNTPrimed tnt = new EntityTNTPrimed( world, player.posX, player.posY, player.posZ, player );
+			tnt.fuse /= 2;
 			EntityHelpers.throwEntity( tnt, 2F, player );
 			world.spawnEntityInWorld( tnt );
 		}
